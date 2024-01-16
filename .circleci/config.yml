@@ -21,10 +21,10 @@ jobs:
           name: Cancel Job After 5 Minutes
           command: |
             current_time=$(date +%s)
-            elapsed_time=$((current_time - $CIRCLE_START_TIME))
-            max_time=100  # Set your maximum allowed time in seconds (5 minutes)
+            elapsed_time=$((current_time - CIRCLE_START_TIME))
+            max_time=300  # Set your maximum allowed time in seconds (5 minutes)
 
-            if [ $elapsed_time -gt $max_time ]; then
+            if [ "$elapsed_time" -gt "$max_time" ]; then
               echo "Job has exceeded the maximum allowed time. Cancelling..."
               curl -X POST --header "Circle-Token: $CIRCLECI_API_TOKEN" --header "Content-Type: application/json" -d '{"status": "canceled"}' "https://circleci.com/api/v2/workflow/$CIRCLE_WORKFLOW_ID/cancel"
               exit 1
